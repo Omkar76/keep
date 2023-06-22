@@ -3,12 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MyformComponent } from './bruh/myform.component';
+import { NoteComponent } from './note/note.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyformComponent
+    NoteComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,

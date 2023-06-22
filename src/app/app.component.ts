@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Note} from "./note";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'keep';
+  sampleNote : Note = {
+    title : "",
+    body : "Lmao"
+  }
 }
