@@ -1,0 +1,14 @@
+.newnoteform{
+  display: flex;
+  width: 600px;
+  justify-content: stretch;
+  align-items: stretch;
+  align-items: stretch;
+  flex: 1;
+}
+
+input{
+  flex-grow: 1;
+  padding: 4px;
+  font-size: 16px;
+}

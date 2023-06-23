@@ -7,9 +7,5 @@ import {Note} from "./note";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'keep';
-  sampleNote : Note = {
-    title : "",
-    body : "Lmao"
-  }
+  value = ""
 }

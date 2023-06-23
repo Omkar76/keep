@@ -2,7 +2,10 @@
 
 :root{
   --nav-active : #feefc3;
+  --grey : #f1f3f4;
   --nav-hover : #f1f3f4;
+  --icon-hover-bg : #f1f3f4;
+  --icon-fill: #5f6368;
   --icon-active : #202124;
   --icon-inactive: #5f6368;
   --text : #202124;
@@ -58,3 +61,15 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+
+/*End normalize*/
+
+body{
+  /*height: 100vh;*/
+}
+
+app-root{
+  /*height: 100vh;*/
+}
+
