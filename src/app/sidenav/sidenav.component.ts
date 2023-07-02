@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {SharedService} from "../shared.service";
+import {tap} from "rxjs";
 
 @Component({
   selector: 'app-sidenav',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent {
+  // isCollapsed : boolean
+  constructor(public sharedService : SharedService) {
+    // this.sharedService
+  }
 
+  // isNavCollapsed(){
+  //   // return this.sharedService.isNavCollapsed();
+  // }
 }

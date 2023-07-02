@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Note} from "./note";
+import {SharedService} from "./shared.service";
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,10 @@ import {Note} from "./note";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  value = ""
+
+  constructor(private sharedService : SharedService) {
+  }
+  toggleNav(){
+   this.sharedService.toggleNav()
+  }
 }

@@ -11,6 +11,8 @@ import {FormsModule} from "@angular/forms";
 import { NewNoteComponent } from './new-note/new-note.component';
 import { MainComponent } from './main/main.component';
 
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { MainComponent } from './main/main.component';
     BrowserModule,
     AppRoutingModule,
     NgOptimizedImage,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
