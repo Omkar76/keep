@@ -12,6 +12,10 @@ import { NewNoteComponent } from './new-note/new-note.component';
 import { MainComponent } from './main/main.component';
 
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenuModule} from "@angular/material/menu";
+import {MatBadgeModule} from "@angular/material/badge";
+import {NgxPopperjsModule} from "ngx-popperjs";
 
 
 @NgModule({
@@ -28,7 +32,11 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     NgOptimizedImage,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule,
+    BrowserAnimationsModule,
+    MatBadgeModule,
+    NgxPopperjsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

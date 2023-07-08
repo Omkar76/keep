@@ -67,3 +67,9 @@ table {
 /*End normalize*/
 
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/*.cdk-overlay-pane {width: 100%!important;}*/
+
+.mat-mdc-menu-panel {max-width: unset;}
