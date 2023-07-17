@@ -1,14 +1,22 @@
-import {Component, ElementRef, HostListener, Renderer2, ViewChild, ViewRef} from '@angular/core';
-import {NgxPopperjsDirective, NgxPopperjsPlacements, NgxPopperjsTriggers} from "ngx-popperjs";
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  ViewChild,
+} from '@angular/core';
+
+import { NgxPopperjsPlacements, NgxPopperjsTriggers} from "ngx-popperjs";
+import {SharedService} from "../shared.service";
+import {Note} from "../../models/Note";
 
 @Component({
   selector: 'app-new-note',
   templateUrl: './new-note.component.html',
   styleUrls: ['./new-note.component.css']
 })
-export class NewNoteComponent {
+export class NewNoteComponent{
 
-  isEditing = true
+  isEditing = false
   @ViewChild('bodyContent')
   contentBody! : ElementRef<HTMLDivElement>;
 
@@ -18,55 +26,48 @@ export class NewNoteComponent {
   @ViewChild('container')
   container! : ElementRef<HTMLElement>
 
-  private _backgroundColor: string | null = null;
-  getBackgroundColor(){
-    return this._backgroundColor;
+  note : Note = new Note();
+
+  constructor(private sharedService : SharedService) {}
+  get backgroundImageURL(): string | null {
+    return `url(/assets/backgrounds/light/${this.note.backgroundImage})`;
   }
 
-  setBackgroundColor(color : string){
-    this._backgroundColor = color;
-  }
+  titleChangeHandler = (e : Event)=>{
+    this.note.title = (e.target as HTMLDivElement).innerText;
+    return true;
+  };
 
-  private _backgroundImage: string | null = null;
-  getBackgroundImage(): string | null {
-    return `url(/assets/backgrounds/light/${this._backgroundImage})`;
-  }
+  bodyChangeHandler = (e : Event)=>{
+    this.note.body = (e.target as HTMLDivElement).innerText;
+    return true;
+  };
 
-  setBackgroundImage(value: string | null) {
-    this._backgroundImage = value;
-  }
+  @HostListener('document:click', ['$event'])
+  clickHandle(event : Event){
+    if(this.container.nativeElement.contains(event.target as Node) || this.container.nativeElement == event.target) {
+      this.isEditing = true;
 
-  handleClick() {
-    this.isEditing = true
-  }
+      if(this.contentTitle && this.contentTitle.nativeElement.contains(event.target as Node) || this.contentTitle.nativeElement == event.target){
+        setTimeout(() => {
+          this.contentTitle.nativeElement.focus();
+        });
+        return;
+      }
+      // if(this.contentBody.nativeElement.contains(event.target as Node) || this.contentBody.nativeElement == event.target){
+        setTimeout(() => {
+          this.contentBody.nativeElement.focus();
+        });
+      // }
 
-  isBodyEmpty(){
-    return this.contentBody.nativeElement.innerText !="";
+    } else {
+      this.isEditing = false;
+      if(!this.note.isEmpty()){
+        this.sharedService.newNoteCreated.emit(this.note);
+      }
+      this.note = new Note();
+    }
   }
-  constructor() {}
-  //
-  // @HostListener('document:click', ['$event'])
-  // clickHandle(event : Event){
-  //   if(this.container.nativeElement.contains(event.target as Node) || this.container.nativeElement == event.target) {
-  //     this.isEditing = true;
-  //
-  //     if(this.contentTitle && this.contentTitle.nativeElement.contains(event.target as Node) || this.contentTitle.nativeElement == event.target){
-  //       setTimeout(() => {
-  //         this.contentTitle.nativeElement.focus();
-  //       });
-  //       return;
-  //     }
-  //     // if(this.contentBody.nativeElement.contains(event.target as Node) || this.contentBody.nativeElement == event.target){
-  //       setTimeout(() => {
-  //         this.contentBody.nativeElement.focus();
-  //       });
-  //     // }
-  //
-  //   } else {
-  //     this.isEditing = false;
-  //   }
-  // }
-  protected readonly NgxPopperjsDirective = NgxPopperjsDirective;
   protected readonly NgxPopperjsTriggers = NgxPopperjsTriggers;
   protected readonly NgxPopperjsPlacements = NgxPopperjsPlacements;
 

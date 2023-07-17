@@ -2,5 +2,11 @@
   <app-new-note/>
   <section>
     <h2>List of notes</h2>
+    <div style="display: flex; flex-flow: row wrap;">
+      <div *ngFor="let note of sharedService.notes" class="note">
+        <p>{{note.title}}</p>
+        <p>{{note.body}}</p>
+      </div>
+    </div>
   </section>
 </main>

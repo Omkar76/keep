@@ -13,5 +13,5 @@ export class NoteComponent {
   // labels : string[]
   // images : string[]
   // showCheckboxes : boolean
-  // editedTime: string
+  // editedTime: stringgit
 }
