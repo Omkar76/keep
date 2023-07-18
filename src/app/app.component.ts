@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {Note} from "./note";
 import {SharedService} from "./shared.service";
 
 @Component({
