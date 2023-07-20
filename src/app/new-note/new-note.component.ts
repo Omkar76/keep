@@ -38,8 +38,8 @@ export class NewNoteComponent{
     return true;
   };
 
-  bodyChangeHandler = (e : Event)=>{
-    this.note.body = (e.target as HTMLDivElement).innerText;
+  bodyChangeHandler = (e : Event)=>{``
+    this.note.body = (e.target as HTMLDivElement).textContent ?? '';
     return true;
   };
 
@@ -48,16 +48,16 @@ export class NewNoteComponent{
     if(this.container.nativeElement.contains(event.target as Node) || this.container.nativeElement == event.target) {
       this.isEditing = true;
 
-      if(this.contentTitle && this.contentTitle.nativeElement.contains(event.target as Node) || this.contentTitle.nativeElement == event.target){
-        setTimeout(() => {
-          this.contentTitle.nativeElement.focus();
-        });
-        return;
-      }
+      // if(this.contentTitle && this.contentTitle.nativeElement.contains(event.target as Node) || this.contentTitle.nativeElement == event.target){
+      //   setTimeout(() => {
+      //     this.contentTitle.nativeElement.focus();
+      //   });
+      //   return;
+      // }
       // if(this.contentBody.nativeElement.contains(event.target as Node) || this.contentBody.nativeElement == event.target){
-        setTimeout(() => {
-          this.contentBody.nativeElement.focus();
-        });
+      //   setTimeout(() => {
+      //     this.contentBody.nativeElement.focus();
+      //   });
       // }
 
     } else {

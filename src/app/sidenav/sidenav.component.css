@@ -1,13 +1,11 @@
 ul{
+  margin-top : 8px;
   color : var(--text);
   font-family: "Google Sans", Serif;
   font-size: 0.875rem;
   user-select: none;
   font-weight: 500;
   user-select: none;
-}
-
-ul{
   width: 280px;
   height: calc(100vh - 65px);
   top:0;
